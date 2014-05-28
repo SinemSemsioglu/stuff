@@ -1,0 +1,25 @@
+Sinem Semsioglu
+
+I am going to summarize what I did for each step
+
+1. I think I am able to get the commands fine ( I didn't do bonus so I need spaces!)
+
+2. I run single word commands and exit when there is an exit command.
+
+3. I parse the strings and put them in the args array and erase all the whitespaces in the end.
+
+4. I can run multi-token command lines.
+
+5. I trap sigint, yet I fail to reprint shell: statement. You can execute normally even if there is no prompt. Well apparently not on this computer, I trap it and there are problems and it quits.. :(
+
+6. I take care of the background option. The program doesn't wait. One weird thing is when I kill foreground children, it somehow gets into the waiting part of the bg children. It doesn't wait for or terminate the children but prints out the terminated statement so I excluded the terminated statement just not to make it more confusing. No bonus :(
+
+7. I support the < > options.
+
+8. I am doing single piping. Yet there is weird behaviour. For example when I tested it with echo string | cat > output, I wrote the string twice to the output.
+
+9. I am not handling this situation and hoped because I have recursive piping that it would work. So it works sometimes in weird ways but not correctly because I have a lot of global variables that make this really confusing...
+
+Besides from the errors I mentioned throughout, I have problems freeing and I lose memory :(
+
+I don't think there are any particularly interesting decisions.
