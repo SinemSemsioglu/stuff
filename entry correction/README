@@ -1,0 +1,30 @@
+README
+
+This is a script I wrote for a job application. The prompt was: You are given a csv file with a first name, last name pair on each line, however approximately 10 percent of the entries are in wrong order (last name, first name). Develop a script that corrects such entries.
+I also had to write the script in Python. I didn't have a lot of experience with Python and I had no experience in working with data. So here is the result.
+
+solution.py:
+
+The version of Python used is 2.7.5 (also tested on 3.4.2)
+
+This is a program that takes in a .csv file - currently initialized to user.csv- that has at least two columns and processes two columns of it. These columns are treated as corresponding to entries of the form firstname,lastname
+
+Currently it outputs some statements that I find useful, this can be supressed by passing in the argument -np
+
+It finds entries that are inserted in the wrong order and swaps them. The file is assumed to have a percentage of bad-formatted entires around errorPercent - currently initialized to 0.1
+
+The corrected version of the file is written to a .csv file - corrected_users.csv
+
+I used very basic techniques in this program. It can be outlined as:
+	- Runs through the file, makes an entry for each name, stores in a dictionary (names)
+	- Keeps track of how many times a word appears as a first name and as a last name
+	- Based on the data, a score is calculated (#first/#overall) for only words that have appeared as both as a first name and as a last name. Stores data in a dictionary (scores)
+	- Some bounds are calculated in relation to the errorPercentage. I must say that these calculations aren't very precise. It could be enhanced with the use of more advanced techniques (i.e. Linear Programming - would require external library)
+	- Runs through the file again, for each line, pair of firstname lastname, makes several checks to see if one or both of the words are in the scores dictionary and if the bounds are appropriate. If the line qualifies, makes a swap.
+	- Writes an output file during this run.
+
+Comments: It is my finals week still, so unfortunately I couldn't spend a lot of time on this. One thing that is missing is error checking, but it should work fine with a file with at least two columns. I am not taking into consideration the possibility of having entries that are not of the form 'firstname,lastname', the program treats every line the same. Another thing I would like to work on is to come up with better bounds on the score to keep the number of changes withing the error percentage.
+
+Overall, I had a lot of fun writing it, and I hope you'll enjoy looking at it!
+
+Sinem Semsioglu
